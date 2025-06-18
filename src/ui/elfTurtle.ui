@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ElfTurtle</class>
+ <widget class="QMainWindow" name="ElfTurtle">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1038</width>
+    <height>727</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Sans Serif</family>
+    <pointsize>13</pointsize>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::FocusPolicy::NoFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>ElfTurtle</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="QIcon::ThemeIcon::NetworkWireless"/>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LayoutDirection::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">    background-color: transparent;
+</string>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    background-color: transparent;
+    border: none;</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>-190</x>
+      <y>-10</y>
+      <width>1241</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(17,17,17,100);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../../assets/assets.qrc">:/turtle/turtle.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="options">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>261</width>
+      <height>731</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:rgba(1,58,76,215);
+border: 1px solid rgba(255,255,255,0.1);
+font-family: 'Segoe UI', 'Tahoma', sans-serif;
+font-size:20px;
+color:white;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string extracomment="Show Virus Total">Virus Total</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normalon>:/virustotal/virustotal.svg</normalon>
+      </iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show yara Rules">Yara</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normalon>:/YARA/yara.svg</normalon>
+      </iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show basic info">Basic Info</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="icon">
+      <iconset theme="utilities-system-monitor"/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show imported functions">⛓️ IAT</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show exported functions">↗️ EAT</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show program headers">🧠 Program Headers</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show sections">📦 Sections Headers</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string extracomment="Show dumped strings">🔤 Strings</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>🗂️ LoadFile</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+    </item>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>0</y>
+      <width>781</width>
+      <height>731</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Frutiger</family>
+      <pointsize>19</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+color:white;
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="LoadFile">
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_12">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>300</y>
+        <width>381</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>🐢 Arraste um ELF 🐢</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="basic">
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_2">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>20</y>
+        <width>151</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>BasicInfo</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>140</y>
+        <width>481</width>
+        <height>441</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="VirusTotal">
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_3">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>20</y>
+        <width>151</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>VirusTotal</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>701</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: transparent;
+    color: white;
+    border: none;
+    gridline-color: rgba(255, 255, 255, 0.1);
+    selection-background-color: rgba(0, 150, 255, 0.3);
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: rgba(17, 17, 17, 0.7);
+    color: white;
+    padding: 4px;
+    border: none;
+    font-weight: bold;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+QTableWidget::item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+QTableCornerButton::section {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Engine</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>119</red>
+         <green>118</green>
+         <blue>123</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Positiv</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Age</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Yara">
+     <widget class="QLabel" name="architectureLabel_4">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>20</y>
+        <width>71</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>Yara</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>701</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: transparent;
+    color: white;
+    border: none;
+    gridline-color: rgba(255, 255, 255, 0.1);
+    selection-background-color: rgba(0, 150, 255, 0.3);
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: rgba(17, 17, 17, 0.7);
+    color: white;
+    padding: 4px;
+    border: none;
+    font-weight: bold;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+QTableWidget::item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+QTableCornerButton::section {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>5</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Rule</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>119</red>
+         <green>118</green>
+         <blue>123</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Matches</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Strings Matches</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Offset</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Description</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+     </widget>
+     <zorder>label_4</zorder>
+     <zorder>architectureLabel_4</zorder>
+     <zorder>tableWidget_6</zorder>
+    </widget>
+    <widget class="QWidget" name="Strings">
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_11">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>20</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>Strings</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="strings">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>721</width>
+        <height>621</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Iat">
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_5">
+      <property name="geometry">
+       <rect>
+        <x>365</x>
+        <y>20</y>
+        <width>51</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>IAT</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>751</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: transparent;
+    color: white;
+    border: none;
+    gridline-color: rgba(255, 255, 255, 0.1);
+    selection-background-color: rgba(0, 150, 255, 0.3);
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: rgba(17, 17, 17, 0.7);
+    color: white;
+    padding: 6px;
+    border: none;
+    font-weight: bold;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+QTableWidget::item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+QTableCornerButton::section {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>2</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>119</red>
+         <green>118</green>
+         <blue>123</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Offset</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Eat">
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_6">
+      <property name="geometry">
+       <rect>
+        <x>365</x>
+        <y>20</y>
+        <width>51</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>Eat</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>751</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: transparent;
+    color: white;
+    border: none;
+    gridline-color: rgba(255, 255, 255, 0.1);
+    selection-background-color: rgba(0, 150, 255, 0.3);
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: rgba(17, 17, 17, 0.7);
+    color: white;
+    padding: 6px;
+    border: none;
+    font-weight: bold;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+QTableWidget::item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+QTableCornerButton::section {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>2</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>119</red>
+         <green>118</green>
+         <blue>123</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Offset</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Program">
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_7">
+      <property name="geometry">
+       <rect>
+        <x>275</x>
+        <y>20</y>
+        <width>290</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>Program Headers</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>731</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: transparent;
+    color: white;
+    border: none;
+    gridline-color: rgba(255, 255, 255, 0.1);
+    selection-background-color: rgba(0, 150, 255, 0.3);
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: rgba(17, 17, 17, 0.7);
+    color: white;
+    padding: 4px;
+    border: none;
+    font-weight: bold;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+QTableWidget::item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+QTableCornerButton::section {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>6</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>119</red>
+         <green>118</green>
+         <blue>123</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Offset</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Virtual Address</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Size</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Flags</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Align</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Sections">
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>781</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgba(17,17,17,180);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="architectureLabel_8">
+      <property name="geometry">
+       <rect>
+        <x>275</x>
+        <y>20</y>
+        <width>241</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Frutiger</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border:none;
+font-size:30px;</string>
+      </property>
+      <property name="text">
+       <string>Sections Headers</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="sects">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>70</y>
+        <width>701</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: transparent;
+    color: white;
+    border: none;
+    gridline-color: rgba(255, 255, 255, 0.1);
+    selection-background-color: rgba(0, 150, 255, 0.3);
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: rgba(17, 17, 17, 0.7);
+    color: white;
+    padding: 4px;
+    border: none;
+    font-weight: bold;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+QTableWidget::item {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+QTableCornerButton::section {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>5</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>119</red>
+         <green>118</green>
+         <blue>123</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Offset</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Size</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Entropy</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="architectureLabel_9">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>670</y>
+      <width>261</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>-1</pointsize>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+border:none;
+font-size:15px;</string>
+    </property>
+    <property name="text">
+     <string>Coded by kaisy32   </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="architectureLabel_10">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>690</y>
+      <width>201</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>-1</pointsize>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+border:none;
+font-size:15px;</string>
+    </property>
+    <property name="text">
+     <string>https://github.com/user07777</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <includes>
+  <include location="local">QWidget {</include>
+  <include location="local">    background-color: #F5F5F5;</include>
+  <include location="local">    color: #333333;</include>
+  <include location="local">    font-family: Frutiger, Arial, sans-serif;</include>
+  <include location="local">}</include>
+  <include location="local">QPushButton {</include>
+  <include location="local">    background-color: #006699;</include>
+  <include location="local">    color: white;</include>
+  <include location="local">    border-radius: 8px;</include>
+  <include location="local">    padding: 6px 12px;</include>
+  <include location="local">}</include>
+  <include location="local">QPushButton:hover {</include>
+  <include location="local">    background-color: #005577;</include>
+  <include location="local">}</include>
+  <include location="local">QLineEdit, QTextEdit {</include>
+  <include location="local">    background-color: white;</include>
+  <include location="local">    border: 1px solid #CCCCCC;</include>
+  <include location="local">    border-radius: 4px;</include>
+  <include location="local">    padding: 4px;</include>
+  <include location="local">}</include>
+  <include location="local">QLabel {</include>
+  <include location="local">    font-size: 14px;</include>
+  <include location="local">}</include>
+ </includes>
+ <resources>
+  <include location="../../assets/assets.qrc"/>
+ </resources>
+ <connections/>
+</ui>
