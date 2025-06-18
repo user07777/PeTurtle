@@ -1,2 +1,9 @@
-# PeTurtle
-ELF file forensic tool with VirusTotal lookup and turtle-themed UI. 🐢
+# 🐢 ELFTurtle
+
+```bash
+git clone https://github.com/user07777/PeTurtle.git
+cd PeTurtle
+mkdir build && cd build
+cmake ..
+make
+
