@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/turtle">
+        <file>turtle.jpg</file>
+    </qresource>
+    <qresource prefix="/virustotal">
+        <file>virustotal.svg</file>
+    </qresource>
+
+    <qresource prefix="/YARA">
+        <file>yara.svg</file>
+    </qresource>
+</RCC>
