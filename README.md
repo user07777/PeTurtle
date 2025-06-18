@@ -7,4 +7,4 @@ cd PeTurtle
 mkdir build && cd build
 cmake ..
 make
-
+./elfstudio-qt
